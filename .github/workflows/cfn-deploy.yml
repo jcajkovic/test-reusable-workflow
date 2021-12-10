@@ -2,10 +2,19 @@ name: cfn-deploy-test
 
 on:
   workflow_dispatch:
-
+    inputs:
+      env:
+        type: choice
+        description: 'Environment type [dev, tst, acc, prd]'
+        required: true
+        options:
+        - dev
+        - tst
+        - acc
+        - prd
 jobs:
   call-workflow-passing-data:
     uses: jcajkovic/workflows/.github/workflows/cfn-deploy.yml@main
     with:
-      env: dev
+      env: ${{ github.event.inputs.env }}
       customer: bmw
