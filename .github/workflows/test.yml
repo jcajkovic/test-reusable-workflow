@@ -1,0 +1,10 @@
+name: Call a reusable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow-passing-data:
+    uses: jcajkovic/workflow/.github/workflows/cfn-release.yml@main
+    secrets:
+      token: ${{ secrets.TOKEN }}
