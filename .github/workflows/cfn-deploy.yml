@@ -1,0 +1,11 @@
+name: cfn-deploy-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow-passing-data:
+    uses: jcajkovic/workflows/.github/workflows/cfn-deploy.yml@main
+    with:
+      env: dev
+      customer: bmw
